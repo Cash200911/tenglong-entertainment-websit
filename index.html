@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>健康科技生活 - 未来健康体验</title>
-    <meta name="description" content="健康科技生活是融合尖端科技与健康管理的创新平台，通过AI分析、智能追踪和个性化方案，为您打造全方位的健康生活体验">
-    <link rel="icon" href="https://via.placeholder.com/32x32/00FFAA/000000?text=HT" type="image/png">
+    <title>腾龙娱乐 - 极致线上娱乐体验</title>
+    <meta name="description" content="腾龙娱乐致力于提供顶级的线上娱乐体验，融合创新技术、丰富游戏选择和卓越服务，为您打造安全、公平、刺激的娱乐平台">
+    <link rel="icon" href="https://via.placeholder.com/32x32/00AAFF/000000?text=TL" type="image/png">
     
-    <!-- 引入Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- 引入Google Fonts - 优化字体加载和权重 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     
     <!-- 引入Font Awesome图标 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary-color: #00FFAA; /* 霓虹绿 */
-            --secondary-color: #00AAFF; /* 霓虹蓝 */
-            --accent-color: #FF00AA; /* 霓虹粉 */
+            --primary-color: #00AAFF; /* 霓虹蓝 - 匹配娱乐主题 */
+            --secondary-color: #FF00AA; /* 霓虹粉 */
+            --accent-color: #00FFAA; /* 霓虹绿 */
             --dark-bg: #0A0A12; /* 深色背景 */
             --darker-bg: #050508; /* 更深背景 */
             --card-bg: rgba(20, 20, 30, 0.8); /* 卡片背景 */
@@ -48,11 +48,13 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 0.5em;
+            letter-spacing: -0.5px; /* 适当的字母间距 */
         }
 
         p {
             margin-bottom: 1em;
             color: var(--text-muted);
+            font-weight: 300; /* 调整段落字体粗细 */
         }
 
         a {
@@ -96,6 +98,9 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-light);
+            /* 确保渐变文字居中且不“歪” */
+            text-align: center; 
+            white-space: nowrap; /* 防止换行 */
         }
 
         .logo img {
@@ -108,6 +113,8 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            display: inline-block; /* 确保渐变效果正确应用 */
+            line-height: 1; /* 减少行高影响 */
         }
 
         nav ul {
@@ -159,7 +166,7 @@
             padding: 12px 24px;
             border-radius: var(--border-radius);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.95rem; /* 调整按钮字体大小 */
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
@@ -173,12 +180,12 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--dark-bg);
-            box-shadow: 0 4px 15px rgba(0, 255, 170, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 170, 255, 0.3); /* 调整阴影颜色 */
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 255, 170, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 170, 255, 0.5); /* 调整阴影颜色 */
         }
 
         .btn-outline {
@@ -188,7 +195,7 @@
         }
 
         .btn-outline:hover {
-            background: rgba(0, 255, 170, 0.1);
+            background: rgba(0, 170, 255, 0.1); /* 调整颜色 */
             transform: translateY(-2px);
         }
 
@@ -231,6 +238,7 @@
             font-size: 1.2rem;
             margin-bottom: calc(var(--spacing-unit) * 1.5);
             color: var(--text-muted);
+            font-weight: 300;
         }
 
         .hero-image {
@@ -346,14 +354,14 @@
             color: var(--text-light);
         }
 
-        /* 健康知识区 */
-        .health-categories {
+        /* 游戏分类区 (原健康知识) */
+        .game-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--spacing-unit);
         }
 
-        .health-card {
+        .game-card { /* 原 health-card */
             background: var(--card-bg);
             border-radius: var(--border-radius);
             overflow: hidden;
@@ -363,51 +371,47 @@
             flex-direction: column;
         }
 
-        .health-card:hover {
+        .game-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--box-shadow);
             border-color: var(--primary-color);
         }
 
-        .health-card-image {
+        .game-card-image {
             height: 200px;
             overflow: hidden;
         }
 
-        .health-card img {
+        .game-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .health-card:hover img {
+        .game-card:hover img {
             transform: scale(1.05);
         }
 
-        .health-card-content {
+        .game-card-content {
             padding: var(--spacing-unit);
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .health-card h3 {
+        .game-card h3 {
             font-size: 1.3rem;
             margin-bottom: 12px;
             color: var(--text-light);
         }
 
-        .health-card .btn {
+        .game-card .btn {
             align-self: flex-start;
             margin-top: auto;
         }
 
-        /* 健康活动区 */
-        .promotions {
-            background: var(--darker-bg);
-        }
-
+        /* 最新活动区 (原健康活动) */
         .promotions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -431,7 +435,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 255, 170, 0.05), rgba(0, 170, 255, 0.05));
+            background: linear-gradient(135deg, rgba(0, 170, 255, 0.05), rgba(255, 0, 170, 0.05)); /* 调整颜色 */
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -461,11 +465,11 @@
             align-items: center;
             justify-content: center;
             margin-right: 12px;
-            background: rgba(0, 255, 170, 0.1);
+            background: rgba(0, 170, 255, 0.1); /* 调整颜色 */
             color: var(--primary-color);
         }
 
-        /* 为什么选择我们 */
+        /* 平台优势 */
         .why-choose-us .features-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -530,12 +534,12 @@
             color: var(--text-muted);
         }
 
-        /* 健康小贴士 */
-        .health-tips {
+        /* 娱乐指南区 (原健康小贴士) */
+        .entertainment-guides { /* 原 health-tips */
             background: var(--darker-bg);
         }
 
-        .tips-container {
+        .tips-container { /* 改为 guides-container */
             max-width: 800px;
             margin: 0 auto;
             background: var(--card-bg);
@@ -627,8 +631,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center center/cover;
-            opacity: 0.1;
+            background: url('https://images.unsplash.com/photo-1549488344-f67f735c0525?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center center/cover; /* 更换为娱乐主题图片 */
+            opacity: 0.15; /* 略微增加透明度 */
             z-index: 0;
         }
 
@@ -646,6 +650,7 @@
             color: rgba(10, 10, 18, 0.8);
             max-width: 700px;
             margin: 0 auto var(--spacing-unit);
+            font-weight: 400; /* 调整字体粗细 */
         }
 
         .cta-section .btn {
@@ -850,7 +855,7 @@
         .form-control:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0, 255, 170, 0.2);
+            box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.2); /* 调整颜色 */
         }
 
         .form-footer {
@@ -865,7 +870,7 @@
             font-weight: 500;
         }
 
-        /* 响应式设计 */
+        /* 响应式设计 - 针对手机端和电脑端优化 */
         @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 2.8rem;
@@ -873,6 +878,21 @@
             
             .hero-image {
                 opacity: 0.5;
+                width: 60%; /* 调整图片大小 */
+                right: -10%; /* 调整位置 */
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             }
         }
 
@@ -882,14 +902,79 @@
             }
             
             .header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: var(--spacing-unit);
+                flex-wrap: wrap; /* 允许换行 */
+                justify-content: center; /* 居中对齐 */
+                gap: 16px; /* 减小间距 */
+                padding: 12px var(--spacing-unit);
             }
             
+            .logo {
+                width: 100%; /* logo占满一行 */
+                justify-content: center; /* logo内容居中 */
+                margin-bottom: 8px;
+            }
+
+            .cta-buttons {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            
+            /* 汉堡菜单 */
+            .nav-toggle { /* 汉堡菜单按钮 */
+                display: block;
+                position: absolute;
+                right: var(--spacing-unit);
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1001; /* 确保在最上层 */
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%; /* 默认隐藏在左侧 */
+                width: 70%; /* 菜单宽度 */
+                height: 100vh;
+                background-color: var(--darker-bg);
+                padding: calc(var(--spacing-unit) * 4) var(--spacing-unit); /* 顶部留出空间，并加内边距 */
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.4);
+                transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* 弹性动画 */
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start; /* 菜单项左对齐 */
+                border-right: 1px solid var(--border-color);
+            }
+
+            nav.active {
+                left: 0; /* 激活时移入 */
+            }
+
             nav ul {
                 flex-direction: column;
-                gap: 8px;
+                width: 100%;
+                gap: 0; /* 移除列表项间距 */
+            }
+
+            nav ul li {
+                width: 100%;
+                margin-bottom: 12px; /* 列表项底部间距 */
+            }
+
+            nav ul li a {
+                padding: 12px 0; /* 增大点击区域 */
+                width: 100%;
+                text-align: left;
+                font-size: 1.1rem;
+            }
+
+            nav ul li a::after {
+                left: 0; /* 下划线左对齐 */
+                transform: translateX(0);
+            }
+            nav ul li a:hover::after,
+            nav ul li a.active::after {
+                width: 40%; /* 调整下划线宽度 */
             }
             
             .hero {
@@ -916,6 +1001,11 @@
             h2 {
                 font-size: 2rem;
             }
+            
+            /* 模态框在手机端更居中 */
+            .modal-content {
+                margin: var(--spacing-unit);
+            }
         }
 
         @media (max-width: 480px) {
@@ -939,6 +1029,10 @@
             .stats-container {
                 grid-template-columns: 1fr;
             }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -948,16 +1042,20 @@
     <header>
         <div class="container header-content">
             <a href="#" class="logo">
-                <img src="https://via.placeholder.com/40x40/00FFAA/000000?text=HT" alt="健康科技生活Logo">
-                <span>健康科技生活</span>
+                <img src="https://via.placeholder.com/40x40/00AAFF/000000?text=TL" alt="腾龙娱乐Logo"> <!-- 修改Logo图片文字 -->
+                <span>腾龙娱乐</span>
             </a>
+            <!-- 汉堡菜单按钮，JS动态生成 -->
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav>
                 <ul>
                     <li><a href="#home" class="nav-link active">首页</a></li>
                     <li><a href="#about" class="nav-link">关于我们</a></li>
-                    <li><a href="#knowledge" class="nav-link">健康知识</a></li>
-                    <li><a href="#activities" class="nav-link">健康活动</a></li>
-                    <li><a href="#features" class="nav-link">平台优势</a></li>
+                    <li><a href="#games" class="nav-link">游戏中心</a></li> <!-- 更改为游戏中心 -->
+                    <li><a href="#promotions" class="nav-link">最新活动</a></li> <!-- 更改为最新活动 -->
+                    <li><a href="#advantages" class="nav-link">平台优势</a></li> <!-- 更改为平台优势 -->
                     <li><a href="#faq" class="nav-link">常见问题</a></li>
                 </ul>
             </nav>
@@ -973,14 +1071,14 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>未来健康体验，从今天开始</h1>
-                    <p>健康科技生活融合AI技术与健康管理，为您提供个性化的健康解决方案，让科技为您的健康保驾护航</p>
+                    <h1>尽享线上娱乐，从腾龙娱乐开始</h1>
+                    <p>腾龙娱乐汇聚全球热门游戏，提供安全公平的竞技环境，24/7客服支持，让您随时随地畅玩无限，体验极致娱乐乐趣。</p>
                     <div style="display: flex; gap: 16px;">
-                        <button class="btn btn-primary btn-large" id="heroRegisterBtn"><i class="fas fa-rocket"></i> 立即体验</button>
-                        <button class="btn btn-outline btn-large"><i class="fas fa-play-circle"></i> 观看视频</button>
+                        <button class="btn btn-primary btn-large" id="heroRegisterBtn"><i class="fas fa-rocket"></i> 立即加入</button>
+                        <button class="btn btn-outline btn-large"><i class="fas fa-play-circle"></i> 了解更多</button>
                     </div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="健康科技" class="hero-image">
+                <img src="https://images.unsplash.com/photo-1547481232-2d1b7d341951?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="腾龙娱乐体验" class="hero-image"> <!-- 更换图片 -->
             </div>
         </section>
 
@@ -988,20 +1086,20 @@
         <section class="stats">
             <div class="container stats-container">
                 <div class="stat-item">
-                    <div class="stat-number">50万+</div>
-                    <div class="stat-label">注册用户</div>
+                    <div class="stat-number">100万+</div>
+                    <div class="stat-label">活跃玩家</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-label">用户满意度</div>
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">玩家满意度</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">300+</div>
-                    <div class="stat-label">健康专家</div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">精品游戏</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">24/7</div>
-                    <div class="stat-label">全天候服务</div>
+                    <div class="stat-label">在线客服</div>
                 </div>
             </div>
         </section>
@@ -1010,183 +1108,174 @@
         <section id="about" class="about-us">
             <div class="container">
                 <div class="section-header">
-                    <h2>关于健康科技生活</h2>
-                    <p>我们是一家融合尖端科技与健康管理的创新企业，致力于通过数据驱动的方法，为每个人提供个性化的健康解决方案</p>
+                    <h2>关于腾龙娱乐</h2>
+                    <p>我们是全球领先的线上娱乐平台，致力于通过创新技术和卓越服务，为玩家提供安全、公平、多元的娱乐体验。</p>
                 </div>
                 <div class="about-features">
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                        <h3>AI健康分析</h3>
-                        <p>利用人工智能技术分析您的健康数据，提供精准的健康评估和个性化建议</p>
+                        <div class="feature-icon"><i class="fas fa-dice"></i></div>
+                        <h3>海量游戏选择</h3>
+                        <p>涵盖各类经典与热门游戏，满足不同玩家的娱乐需求，持续更新。</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
-                        <h3>智能健康追踪</h3>
-                        <p>连接各类健康设备，实时追踪您的健康指标，生成可视化报告</p>
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>安全稳定平台</h3>
+                        <p>采用顶尖加密技术和多重防护系统，确保您的数据与资金安全。</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-user-md"></i></div>
-                        <h3>专业健康指导</h3>
-                        <p>由资深健康专家团队提供一对一咨询和指导服务</p>
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                        <h3>专业客户服务</h3>
+                        <p>24小时在线客服团队，随时为您解答疑问，提供贴心服务。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 健康知识区 -->
-        <section id="knowledge" class="health-center">
+        <!-- 游戏中心区 (原健康知识) -->
+        <section id="games" class="game-center">
             <div class="container">
                 <div class="section-header">
-                    <h2>健康知识专栏</h2>
-                    <p>探索健康生活的方方面面，获取基于最新科学研究的健康知识</p>
+                    <h2>探索热门游戏</h2>
+                    <p>我们提供丰富的游戏种类，总有一款是您的最爱。</p>
                 </div>
-                <div class="health-categories">
-                    <div class="health-card">
-                        <div class="health-card-image">
-                            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="科学饮食">
+                <div class="game-categories">
+                    <div class="game-card">
+                        <div class="game-card-image">
+                            <img src="https://images.unsplash.com/photo-1544652430-8d5119934e62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="热门老虎机"> <!-- 更换图片 -->
                         </div>
-                        <div class="health-card-content">
-                            <h3>科学饮食指南</h3>
-                            <p>了解如何根据个人体质和健康目标选择最适合的食物组合，掌握营养搭配的科学原理</p>
-                           </div>
-                <div class="health-categories">
-                    <div class="health-card">
-                        <div class="health-card-image">
-                            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="科学饮食">
-                        </div>
-                        <div class="health-card-content">
-                            <h3>科学饮食指南</h3>
-                            <p>了解如何根据个人体质和健康目标选择最适合的食物组合，掌握营养搭配的科学原理</p>
-                            <a href="#" class="btn btn-outline"><i class="fas fa-book-open"></i> 阅读更多</a>
+                        <div class="game-card-content">
+                            <h3>老虎机</h3>
+                            <p>数千款主题老虎机，震撼视觉，刺激音效，丰厚大奖等您来赢！</p>
+                            <a href="#" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
                         </div>
                     </div>
-                    <div class="health-card">
-                        <div class="health-card-image">
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="运动健身">
+                    <div class="game-card">
+                        <div class="game-card-image">
+                            <img src="https://images.unsplash.com/photo-1584345437648-522d25091763?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="真人荷官"> <!-- 更换图片 -->
                         </div>
-                        <div class="health-card-content">
-                            <h3>智能运动方案</h3>
-                            <p>基于AI的运动处方系统，根据您的身体状况和目标，生成个性化的训练计划</p>
-                            <a href="#" class="btn btn-outline"><i class="fas fa-book-open"></i> 阅读更多</a>
+                        <div class="game-card-content">
+                            <h3>真人娱乐</h3>
+                            <p>身临其境的真人荷官体验，百家乐、轮盘、21点，真实互动，公平公正。</p>
+                            <a href="#" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
                         </div>
                     </div>
-                    <div class="health-card">
-                        <div class="health-card-image">
-                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="心理健康">
+                    <div class="game-card">
+                        <div class="game-card-image">
+                            <img src="https://images.unsplash.com/photo-1577459178652-e92534f59048?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="体育赛事"> <!-- 更换图片 -->
                         </div>
-                        <div class="health-card-content">
-                            <h3>心理健康支持</h3>
-                            <p>专业的心理评估工具和干预方案，帮助您管理压力、改善情绪、提升生活质量</p>
-                            <a href="#" class="btn btn-outline"><i class="fas fa-book-open"></i> 阅读更多</a>
+                        <div class="game-card-content">
+                            <h3>体育赛事</h3>
+                            <p>覆盖全球各类体育赛事，实时赔率，激情投注，体验赛事魅力。</p>
+                            <a href="#" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 健康活动区 -->
-        <section id="activities" class="promotions">
+        <!-- 最新活动区 (原健康活动) -->
+        <section id="promotions" class="promotions">
             <div class="container">
                 <div class="section-header">
-                    <h2>健康活动计划</h2>
-                    <p>参与我们的健康挑战和活动，与社区成员一起迈向更健康的生活</p>
+                    <h2>最新优惠与活动</h2>
+                    <p>参与我们的精彩活动，赢取丰厚奖励，让您的娱乐体验更上一层楼！</p>
                 </div>
                 <div class="promotions-grid">
                     <div class="promo-card">
-                        <h3><i class="fas fa-calendar-alt"></i>21天健康挑战</h3>
-                        <p>加入我们的21天健康挑战计划，每天一个小目标，逐步建立健康习惯，完成挑战可获得健康礼包！</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> 立即参与</a>
+                        <h3><i class="fas fa-gift"></i> 新用户欢迎礼</h3>
+                        <p>首次注册并充值，即可获得超值新手礼包，助您开启娱乐之旅。</p>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
-                        <h3><i class="fas fa-utensils"></i>智能饮食计划</h3>
-                        <p>根据您的健康状况和口味偏好，生成个性化的每周饮食计划，附带购物清单和烹饪指南</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> 立即参与</a>
+                        <h3><i class="fas fa-percentage"></i> 每周返水优惠</h3>
+                        <p>每周参与指定游戏，可享受高额返水比例，让您赢更多！</p>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
-                        <h3><i class="fas fa-running"></i>运动打卡社区</h3>
-                        <p>加入运动打卡社区，记录您的每一次运动，累积运动时长可兑换健康礼品，让坚持运动更有动力！</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> 立即参与</a>
+                        <h3><i class="fas fa-trophy"></i> 每日挑战赛</h3>
+                        <p>完成每日游戏挑战，赢取积分和额外奖励，争夺排行榜荣耀！</p>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
-                        <h3><i class="fas fa-medal"></i>健康成就系统</h3>
-                        <p>完成健康任务获得成就点数，解锁专属徽章和奖励，让健康生活变得更有趣、更有成就感</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> 立即参与</a>
+                        <h3><i class="fas fa-users"></i> 邀请好友赢大奖</h3>
+                        <p>邀请好友注册并活跃，您和好友都能获得丰厚奖励金。</p>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
-                        <h3><i class="fas fa-chart-line"></i>健康数据追踪</h3>
-                        <p>使用我们的健康追踪工具，记录您的饮食、运动、睡眠等数据，生成个人健康报告，清晰了解健康状况</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> 立即参与</a>
+                        <h3><i class="fas fa-piggy-bank"></i> VIP专属福利</h3>
+                        <p>成为腾龙娱乐VIP会员，尊享专属返利、生日礼金及优先服务。</p>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
-                        <h3><i class="fas fa-users"></i>健康社区交流</h3>
-                        <p>加入健康社区，与志同道合的人分享经验、互相鼓励，共同坚持健康生活方式</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> 立即参与</a>
+                        <h3><i class="fas fa-calendar-alt"></i> 节日限定活动</h3>
+                        <p>特定节日期间，我们将推出限时福利活动，惊喜不断，敬请关注！</p>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 为什么选择我们/平台优势 -->
-        <section id="features" class="why-choose-us">
+        <!-- 平台优势 (原为什么选择我们) -->
+        <section id="advantages" class="why-choose-us">
             <div class="container">
                 <div class="section-header">
-                    <h2>为什么选择我们？</h2>
-                    <p>健康科技生活与众不同的核心优势，为您提供卓越的健康管理体验</p>
+                    <h2>腾龙娱乐核心优势</h2>
+                    <p>选择腾龙娱乐，您将体验到前所未有的线上娱乐新境界</p>
                 </div>
                 <div class="features-list">
                     <div class="reason-item">
-                        <div class="icon"><i class="fas fa-microchip"></i></div>
-                        <h3>前沿科技</h3>
-                        <p>融合AI、大数据和物联网技术，提供智能化的健康解决方案</p>
+                        <div class="icon"><i class="fas fa-gem"></i></div>
+                        <h3>品质保障</h3>
+                        <p>精选全球顶级游戏供应商，确保游戏品质与娱乐体验。</p>
                     </div>
                     <div class="reason-item">
-                        <div class="icon"><i class="fas fa-user-cog"></i></div>
-                        <h3>个性化定制</h3>
-                        <p>根据您的独特需求和目标，生成完全个性化的健康计划</p>
-                    </div>
-                    <div class="reason-item">
-                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>数据安全</h3>
-                        <p>采用银行级加密技术，确保您的健康数据绝对安全和私密</p>
-                    </div>
-                    <div class="reason-item">
-                        <div class="icon"><i class="fas fa-clock"></i></div>
-                        <h3>实时监测</h3>
-                        <p>24/7全天候健康监测，及时发现异常并提供预警</p>
+                        <div class="icon"><i class="fas fa-lock"></i></div>
+                        <h3>资金安全</h3>
+                        <p>多重加密技术保障，存取款快捷安全，无后顾之忧。</p>
                     </div>
                     <div class="reason-item">
                         <div class="icon"><i class="fas fa-certificate"></i></div>
-                        <h3>专业认证</h3>
-                        <p>所有健康建议均由认证专家审核，确保科学性和可靠性</p>
+                        <h3>公平公正</h3>
+                        <p>严格遵守国际博彩法规，采用RNG随机数生成器，保证游戏结果公平。</p>
                     </div>
                     <div class="reason-item">
-                        <div class="icon"><i class="fas fa-hands-helping"></i></div>
-                        <h3>贴心支持</h3>
-                        <p>专业的客服团队随时为您解答疑问，提供贴心支持</p>
+                        <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>全平台兼容</h3>
+                        <p>完美适配PC、手机和平板，随时随地畅享娱乐。</p>
+                    </div>
+                    <div class="reason-item">
+                        <div class="icon"><i class="fas fa-headset"></i></div>
+                        <h3>24H客服</h3>
+                        <p>专业客服团队全天候待命，为您提供及时、高效的帮助。</p>
+                    </div>
+                    <div class="reason-item">
+                        <div class="icon"><i class="fas fa-star"></i></div>
+                        <h3>创新体验</h3>
+                        <p>不断引入最新技术和玩法，打造独具创意的娱乐环境。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 健康小贴士 -->
-        <section id="tips" class="health-tips">
+        <!-- 娱乐指南 (原健康小贴士) -->
+        <section id="guides" class="entertainment-guides">
             <div class="container">
                 <div class="section-header">
-                    <h2>每日健康小贴士</h2>
-                    <p>简单实用的健康建议，轻松融入您的日常生活</p>
+                    <h2>娱乐指南与技巧</h2>
+                    <p>新手入门或老玩家进阶，这里有您需要的娱乐知识和技巧</p>
                 </div>
                 <div class="tips-container">
                     <div class="tip">
-                        <h3><i class="fas fa-leaf" style="color: var(--primary-color); margin-right: 8px;"></i> 多样化饮食</h3>
-                        <p>每天至少摄入5种不同颜色的蔬果，确保获取多种维生素和矿物质。不同颜色的食物含有不同的植物营养素，对健康各有益处。</p>
+                        <h3><i class="fas fa-info-circle" style="color: var(--primary-color); margin-right: 8px;"></i> 负责任娱乐</h3>
+                        <p>娱乐至上，请理性对待游戏，合理安排时间，控制好预算，切勿沉迷。</p>
                     </div>
                     <div class="tip">
-                        <h3><i class="fas fa-tint" style="color: var(--primary-color); margin-right: 8px;"></i> 科学饮水</h3>
-                        <p>成年人每天建议饮水1500-2000毫升。早晨起床后喝一杯温水，有助于启动新陈代谢，促进肠道蠕动。</p>
+                        <h3><i class="fas fa-hand-point-right" style="color: var(--primary-color); margin-right: 8px;"></i> 注册与充值指引</h3>
+                        <p>详细的新手注册和充值教程，助您快速开启游戏，畅享便捷服务。</p>
                     </div>
                     <div class="tip">
-                        <h3><i class="fas fa-running" style="color: var(--primary-color); margin-right: 8px;"></i> 适度运动</h3>
-                        <p>每周至少进行150分钟中等强度有氧运动，如快走、游泳或骑自行车。运动应分散在一周内进行，避免周末突击运动。</p>
+                        <h3><i class="fas fa-chart-line" style="color: var(--primary-color); margin-right: 8px;"></i> 游戏策略分享</h3>
+                        <p>精选热门游戏进阶攻略和实用技巧，提升您的胜率，玩得更尽兴。</p>
                     </div>
                 </div>
             </div>
@@ -1195,9 +1284,9 @@
         <!-- 立即行动/CTA -->
         <section class="cta-section">
             <div class="container">
-                <h2>开启您的健康科技之旅</h2>
-                <p>现在就加入健康科技生活，体验科技带来的健康革命。我们承诺，14天内如果您不满意，无条件全额退款。</p>
-                <button class="btn btn-primary btn-large" id="ctaRegisterBtn"><i class="fas fa-rocket"></i> 立即免费试用</button>
+                <h2>立即加入腾龙娱乐，开启您的娱乐之旅！</h2>
+                <p>数百万玩家的选择，顶级游戏体验，丰厚奖励，尽在腾龙娱乐。</p>
+                <button class="btn btn-primary btn-large" id="ctaRegisterBtn"><i class="fas fa-rocket"></i> 立即注册</button>
             </div>
         </section>
 
@@ -1206,43 +1295,43 @@
             <div class="container">
                 <div class="section-header">
                     <h2>常见问题解答</h2>
-                    <p>以下是用户最常提出的问题，如果您的疑问未在此列出，欢迎随时联系我们的客服团队</p>
+                    <p>以下是玩家最常提出的问题，如果您的疑问未在此列出，欢迎随时联系我们的客服团队</p>
                 </div>
                 <div class="faq-list">
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>健康科技生活适合哪些人群使用？</span>
+                            <span>如何注册腾龙娱乐账户？</span>
                             <span class="arrow"><i class="fas fa-chevron-right"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>健康科技生活适合所有关注健康的成年人使用，无论您是想预防疾病、管理现有健康问题，还是单纯想提升生活质量，我们的平台都能为您提供有价值的帮助。</p>
+                            <p>点击页面右上角的“注册”按钮，按照指引填写您的基本信息，完成验证即可轻松注册。注册过程快速便捷。</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>我的健康数据安全吗？</span>
+                            <span>腾龙娱乐支持哪些支付方式？</span>
                             <span class="arrow"><i class="fas fa-chevron-right"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>我们采用银行级别的数据加密技术，并严格遵守相关隐私保护法规。您的健康数据仅用于为您提供更好的服务，未经您明确同意，我们不会与任何第三方共享。</p>
+                            <p>我们支持多种安全便捷的支付方式，包括主流的银行卡、电子钱包等。具体支付选项请在登录后查看充值页面。</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>如何获取个性化健康方案？</span>
+                            <span>游戏是否公平公正？</span>
                             <span class="arrow"><i class="fas fa-chevron-right"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>注册后，您需要完成详细的健康评估问卷，系统会根据您的回答生成初步方案。随着您使用平台记录更多健康数据，方案会不断优化调整，越来越贴合您的需求。</p>
+                            <p>腾龙娱乐严格遵守国际博彩标准，所有游戏均采用获得认证的随机数生成器（RNG），确保游戏结果的绝对公平性。我们的平台也定期接受第三方机构的审核。</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>平台是否提供专业医疗建议？</span>
+                            <span>遇到问题如何联系客服？</span>
                             <span class="arrow"><i class="fas fa-chevron-right"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>我们的平台提供健康管理和生活方式建议，但不替代专业医疗诊断和治疗。如有特定医疗问题，请咨询合格的医疗专业人员。</p>
+                            <p>您可以通过在线聊天、邮箱或电话联系我们的24小时在线客服团队。我们随时准备为您提供专业、及时的帮助。</p>
                         </div>
                     </div>
                 </div>
@@ -1255,8 +1344,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>健康科技生活</h4>
-                    <p>融合科技与健康，为您打造全方位的健康生活体验</p>
+                    <h4>腾龙娱乐</h4>
+                    <p>汇聚全球热门游戏，为您打造极致娱乐体验</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-weixin"></i></a>
                         <a href="#"><i class="fab fa-weibo"></i></a>
@@ -1269,22 +1358,22 @@
                     <ul>
                         <li><a href="#home"><i class="fas fa-home"></i> 首页</a></li>
                         <li><a href="#about"><i class="fas fa-info-circle"></i> 关于我们</a></li>
-                        <li><a href="#knowledge"><i class="fas fa-book"></i> 健康知识</a></li>
-                        <li><a href="#activities"><i class="fas fa-tasks"></i> 健康活动</a></li>
+                        <li><a href="#games"><i class="fas fa-dice-d6"></i> 游戏中心</a></li>
+                        <li><a href="#promotions"><i class="fas fa-tags"></i> 最新活动</a></li>
                         <li><a href="#faq"><i class="fas fa-question-circle"></i> 常见问题</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>联系方式</h4>
                     <ul>
-                        <li><a href="mailto:info@healthtech.com"><i class="fas fa-envelope"></i> info@healthtech.com</a></li>
-                        <li><a href="tel:4001234567"><i class="fas fa-phone"></i> 400-123-4567</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 北京市海淀区科技园路88号</a></li>
+                        <li><a href="mailto:shixinqiangx@gmail.com"><i class="fas fa-envelope"></i> shixinqiangx@gmail.com</a></li>
+                        <li><a href="tel:09662348273"><i class="fas fa-phone"></i> 09662348273</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 深圳市南山区科技园（示例地址，请根据实际情况修改）</a></li> <!-- 示例地址，请修改 -->
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>订阅资讯</h4>
-                    <p>订阅我们的电子报，获取最新健康资讯和特别优惠</p>
+                    <p>订阅我们的电子报，获取最新优惠和游戏动态</p>
                     <form style="margin-top: 15px;">
                         <input type="email" placeholder="您的邮箱地址" class="form-control" style="margin-bottom: 10px;">
                         <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i> 订阅</button>
@@ -1292,7 +1381,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 健康科技生活. 保留所有权利 | <a href="#">隐私政策</a> | <a href="#">服务条款</a></p>
+                <p>© 2023 腾龙娱乐. 保留所有权利 | <a href="#">隐私政策</a> | <a href="#">服务条款</a></p>
             </div>
         </div>
     </footer>
@@ -1300,7 +1389,7 @@
     <!-- 登录模态框 -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <button class="close-button" id="closeLoginModal">&times;</button>
+            <button class="close-button" id="closeLoginModal">×</button>
             <div class="modal-header">
                 <h3>会员登录</h3>
             </div>
@@ -1329,14 +1418,14 @@
     <!-- 注册模态框 -->
     <div id="registerModal" class="modal">
         <div class="modal-content">
-            <button class="close-button" id="closeRegisterModal">&times;</button>
+            <button class="close-button" id="closeRegisterModal">×</button>
             <div class="modal-header">
                 <h3>注册新账户</h3>
             </div>
             <div class="modal-body">
                 <form id="registerForm">
                     <div class="form-group">
-                        <label for="registerName">姓名</label>
+                        <label for="registerName">用户名</label> <!-- 更改为用户名 -->
                         <input type="text" id="registerName" class="form-control" required>
                     </div>
                     <div class="form-group">
@@ -1383,12 +1472,12 @@
             
             function openModal(modal) {
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; /* 阻止背景滚动 */
             }
             
             function closeModal(modal) {
                 modal.classList.remove('active');
-                document.body.style.overflow = '';
+                document.body.style.overflow = ''; /* 恢复背景滚动 */
             }
             
             // 打开模态框
@@ -1424,7 +1513,7 @@
                 });
             }
             
-            // 表单提交
+            // 表单提交 (这里只是演示，实际需要后端处理)
             const loginForm = document.getElementById('loginForm');
             if(loginForm) {
                 loginForm.addEventListener('submit', (e) => {
@@ -1449,7 +1538,7 @@
                     }
                     
                     const name = document.getElementById('registerName').value;
-                    alert(`恭喜，${name}！您已成功注册健康科技生活会员。`);
+                    alert(`恭喜，${name}！您已成功注册腾龙娱乐会员。`);
                     closeModal(registerModal);
                 });
             }
@@ -1459,19 +1548,29 @@
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 question.addEventListener('click', () => {
-                    item.classList.toggle('active');
-                    
                     // 关闭其他打开的FAQ
                     faqItems.forEach(otherItem => {
                         if(otherItem !== item && otherItem.classList.contains('active')) {
                             otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-question .arrow').style.transform = 'rotate(0deg)';
                         }
                     });
+                    
+                    item.classList.toggle('active');
+                    const arrow = item.querySelector('.faq-question .arrow');
+                    if (item.classList.contains('active')) {
+                        arrow.style.transform = 'rotate(90deg)';
+                    } else {
+                        arrow.style.transform = 'rotate(0deg)';
+                    }
                 });
             });
             
-            // 平滑滚动
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            // 平滑滚动和导航活动状态
+            const navLinks = document.querySelectorAll('nav a.nav-link');
+            const header = document.querySelector('header');
+
+            navLinks.forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     
@@ -1479,7 +1578,7 @@
                     const targetElement = document.querySelector(targetId);
                     
                     if(targetElement) {
-                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const headerHeight = header.offsetHeight;
                         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                         
                         window.scrollTo({
@@ -1487,11 +1586,11 @@
                             behavior: 'smooth'
                         });
                         
-                        // 更新导航活动状态
-                        document.querySelectorAll('nav a').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        this.classList.add('active');
+                        // 移动端点击导航项后关闭菜单
+                        if (window.innerWidth <= 768) {
+                            nav.classList.remove('active');
+                            navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
                     }
                 });
             });
@@ -1499,15 +1598,15 @@
             // 滚动时更新导航活动状态
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY;
-                const headerHeight = document.querySelector('header').offsetHeight;
+                const headerHeight = header.offsetHeight;
                 
                 document.querySelectorAll('section[id]').forEach(section => {
-                    const sectionTop = section.offsetTop - headerHeight;
+                    const sectionTop = section.offsetTop - headerHeight - 1; /* 减去1像素避免临界点问题 */
                     const sectionHeight = section.offsetHeight;
                     const sectionId = section.getAttribute('id');
                     
                     if(scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        document.querySelectorAll('nav a').forEach(link => {
+                        navLinks.forEach(link => {
                             link.classList.remove('active');
                             if(link.getAttribute('href') === `#${sectionId}`) {
                                 link.classList.add('active');
@@ -1517,49 +1616,44 @@
                 });
             });
             
-            // 移动端菜单
-            const menuToggle = document.createElement('button');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            menuToggle.style.display = 'none';
-            menuToggle.style.background = 'none';
-            menuToggle.style.border = 'none';
-            menuToggle.style.color = 'white';
-            menuToggle.style.fontSize = '1.5rem';
-            menuToggle.style.cursor = 'pointer';
-            menuToggle.style.position = 'absolute';
-            menuToggle.style.right = '20px';
-            menuToggle.style.top = '20px';
-            document.querySelector('.header-content').appendChild(menuToggle);
-            
+            // 汉堡菜单功能优化
+            const navToggle = document.querySelector('.nav-toggle');
             const nav = document.querySelector('nav');
             
-            function toggleMenu() {
-                if(nav.style.display === 'flex') {
-                    nav.style.display = 'none';
-                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                    if (nav.classList.contains('active')) {
+                        navToggle.innerHTML = '<i class="fas fa-times"></i>';
+                        document.body.style.overflow = 'hidden'; /* 阻止背景滚动 */
+                    } else {
+                        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = ''; /* 恢复背景滚动 */
+                    }
+                });
+            }
+
+            // 初始加载和窗口大小改变时调整菜单状态
+            function handleResponsiveNav() {
+                if(window.innerWidth > 768) {
+                    nav.classList.remove('active');
+                    nav.style.left = 'auto'; /* 电脑端恢复默认位置 */
+                    nav.style.position = 'relative'; /* 电脑端恢复相对定位 */
+                    nav.style.flexDirection = 'row'; /* 电脑端横向布局 */
+                    navToggle.style.display = 'none';
+                    document.body.style.overflow = '';
                 } else {
-                    nav.style.display = 'flex';
-                    menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                    nav.style.position = 'fixed'; /* 手机端固定定位 */
+                    nav.style.flexDirection = 'column'; /* 手机端纵向布局 */
+                    navToggle.style.display = 'block';
+                    if (!nav.classList.contains('active')) {
+                         nav.style.left = '-100%'; /* 隐藏菜单 */
+                    }
                 }
             }
             
-            menuToggle.addEventListener('click', toggleMenu);
-            
-            function handleResponsive() {
-                if(window.innerWidth <= 768) {
-                    menuToggle.style.display = 'block';
-                    nav.style.display = 'none';
-                } else {
-                    menuToggle.style.display = 'none';
-                    nav.style.display = 'flex';
-                }
-            }
-            
-            // 初始执行
-            handleResponsive();
-            
-            // 监听窗口变化
-            window.addEventListener('resize', handleResponsive);
+            handleResponsiveNav(); // 初始执行
+            window.addEventListener('resize', handleResponsiveNav); // 监听窗口变化
         });
     </script>
 </body>
