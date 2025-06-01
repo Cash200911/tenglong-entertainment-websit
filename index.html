@@ -84,6 +84,14 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
+            /* 新增样式：用于滚动隐藏/显示 */
+            transform: translateY(0); /* 初始状态：可见 */
+            transition: transform 0.3s ease-out; /* 平滑过渡 */
+        }
+
+        /* 头部隐藏时的样式 */
+        header.header-hidden {
+            transform: translateY(-100%); /* 向上移动100%自身高度以隐藏 */
         }
 
         .header-content {
@@ -907,7 +915,7 @@
                     <h1>尽享线上娱乐，从腾龙娱乐开始</h1>
                     <p>腾龙娱乐汇聚全球热门游戏，提供安全公平的竞技环境，24/7客服支持，让您随时随地畅玩无限，体验极致娱乐乐趣。</p>
                     <div style="display: flex; gap: 16px;">
-                        <a href="https://www.itl88848.com" class="btn btn-primary btn-large"><i class="fas fa-rocket"></i> 立即加入</a>
+                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary btn-large"><i class="fas fa-rocket"></i> 立即加入</a>
                         <a href="#about" class="btn btn-outline btn-large"><i class="fas fa-play-circle"></i> 了解更多</a>
                     </div>
                 </div>
@@ -1232,7 +1240,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
             // FAQ功能
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
@@ -1281,6 +1288,7 @@
                     
                     if(targetElement) {
                         const headerHeight = header.offsetHeight;
+                        // 注意：为了让滚动到的部分不被头部遮挡，需要减去头部高度
                         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                         
                         window.scrollTo({
@@ -1311,6 +1319,25 @@
                         });
                     }
                 });
+            });
+
+            // 实现头部滚动隐藏/显示
+            let lastScrollY = 0;
+            const scrollThreshold = 50; // 定义一个滚动阈值，避免轻微滚动也触发隐藏
+
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+
+                // 如果当前滚动位置大于上次滚动位置 (向下滚动) 且超过阈值
+                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                    header.classList.add('header-hidden');
+                } 
+                // 如果当前滚动位置小于上次滚动位置 (向上滚动) 或回到页面顶部 (小于或等于阈值)
+                else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) {
+                    header.classList.remove('header-hidden');
+                }
+
+                lastScrollY = currentScrollY; // 更新上次滚动位置
             });
         });
     </script>
