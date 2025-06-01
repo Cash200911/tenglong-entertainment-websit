@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="8-71Iy__BDBejPqTq-miRsernil9Qjc_hOJwhxv5kpE" />
     <title>腾龙娱乐 - 极致线上娱乐体验</title>
     <meta name="description" content="腾龙娱乐致力于提供顶级的线上娱乐体验，融合创新技术、丰富游戏选择和卓越服务，为您打造安全、公平、刺激的娱乐平台">
     <link rel="icon" href="https://via.placeholder.com/32x32/00AAFF/000000?text=TL" type="image/png">
@@ -42,6 +43,10 @@
             line-height: 1.6;
             scroll-behavior: smooth;
             overflow-x: hidden;
+        }
+        /* 当移动菜单打开时阻止背景滚动 */
+        body.no-scroll {
+            overflow: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -84,7 +89,6 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
-            /* 新增样式：用于滚动隐藏/显示 */
             transform: translateY(0); /* 初始状态：可见 */
             transition: transform 0.3s ease-out; /* 平滑过渡 */
         }
@@ -96,7 +100,7 @@
 
         .header-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Logo和导航在两端 */
             align-items: center;
         }
 
@@ -124,10 +128,39 @@
             line-height: 1; /* 减少行高影响 */
         }
 
+        /* 汉堡菜单按钮 (桌面端隐藏) */
+        .nav-toggle {
+            display: none; /* 默认桌面端隐藏 */
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001; /* 确保在移动菜单之上 */
+        }
+
+        /* 导航菜单 (桌面端) */
+        nav {
+            display: block; /* 默认桌面端显示 */
+            width: auto;
+            background: transparent;
+            position: static;
+            top: auto;
+            left: auto;
+            box-shadow: none;
+            overflow: visible;
+            max-height: none;
+            transition: none;
+            border-top: none;
+            padding-bottom: 0;
+        }
+
         nav ul {
             list-style: none;
-            display: flex;
+            display: flex; /* 桌面端横向排列 */
             gap: var(--spacing-unit);
+            padding: 0;
         }
 
         nav ul li a {
@@ -788,55 +821,66 @@
             }
             
             header {
-                /* 在移动端，头部高度将自动扩展以包含 Logo 和导航 */
                 padding: 12px 0; /* 调整整体头部内边距 */
             }
 
             .header-content {
-                flex-direction: column; /* Logo 和导航垂直堆叠 */
-                align-items: center; /* 居中对齐 */
+                flex-direction: row; /* Logo和汉堡按钮在同一行 */
+                justify-content: space-between; /* Logo左对齐，汉堡按钮右对齐 */
+                align-items: center;
                 padding: 0 var(--spacing-unit); /* 容器内边距 */
-                gap: 16px; /* Logo 和导航之间的间距 */
+                gap: 0; /* 移除间距 */
             }
             
             .logo {
-                width: 100%; /* Logo 占满一行 */
-                justify-content: center; /* Logo 内容居中 */
-                margin-bottom: 0; /* 间距由 header-content 的 gap 控制 */
+                width: auto; /* Logo自动宽度 */
+                justify-content: flex-start; /* Logo靠左 */
             }
             .logo img {
                 margin-right: 8px; /* 略微减小 Logo 图片右侧边距 */
             }
 
+            .nav-toggle {
+                display: block; /* 在移动端显示汉堡菜单按钮 */
+            }
+
             nav {
-                /* 移动端导航样式：始终显示，并垂直排列 */
-                position: static; /* 移除固定定位 */
-                width: 100%; /* 占满宽度 */
-                height: auto;
-                background-color: transparent; /* 移除背景色 */
-                padding: 0; /* 移除内边距 */
-                box-shadow: none;
-                border: none; /* 移除边框 */
-                flex-direction: column; /* 导航项垂直堆叠 */
-                align-items: center; /* 导航项居中对齐 */
-                z-index: auto; /* 重置 z-index */
+                /* 移动端导航菜单样式 */
+                position: absolute; /* 相对于固定定位的header定位 */
+                top: calc(100%); /* 位于header-content下方 */
+                left: 0;
+                width: 100%;
+                background-color: var(--darker-bg); /* 菜单背景色 */
+                box-shadow: var(--box-shadow);
+                overflow: hidden; /* 隐藏超出内容 */
+                max-height: 0; /* 初始隐藏 */
+                transition: max-height 0.4s ease-in-out, border-top 0.3s ease; /* 平滑展开过渡 */
+                border-top: 1px solid transparent; /* 初始透明边框 */
+                z-index: 998; /* 在汉堡按钮之下，页面内容之上 */
+            }
+
+            nav.nav-open {
+                max-height: 500px; /* 展开后的最大高度 (根据内容调整) */
+                border-top: 1px solid var(--border-color); /* 展开时显示边框 */
+                padding-bottom: var(--spacing-unit); /* 菜单底部内边距 */
             }
 
             nav ul {
-                flex-direction: column; /* 列表项垂直堆叠 */
-                width: 100%; /* 列表占满宽度 */
-                gap: 8px; /* 导航项之间的间距 */
+                flex-direction: column; /* 菜单项垂直堆叠 */
+                width: 100%; /* 菜单占满宽度 */
+                gap: 8px; /* 菜单项之间的间距 */
+                padding: var(--spacing-unit) 0; /* 菜单内部垂直内边距 */
+                align-items: center; /* 菜单项居中对齐 */
             }
 
             nav ul li {
-                width: 100%; /* 列表项占满宽度 */
-                text-align: center; /* 列表项文字居中 */
-                margin-bottom: 0; /* 间距由 ul 的 gap 控制 */
+                width: 100%; /* 菜单项占满宽度 */
+                text-align: center; /* 菜单项文字居中 */
             }
 
             nav ul li a {
-                padding: 8px 0; /* 调整导航链接内边距 */
-                font-size: 1rem; /* 调整字体大小 */
+                padding: 12px 0; /* 调整导航链接内边距，使其更容易点击 */
+                font-size: 1.1rem; /* 调整字体大小，适合手机阅读 */
                 display: block; /* 使链接成为块级元素，方便点击 */
             }
             nav ul li a::after {
@@ -890,21 +934,24 @@
     <!-- 头部导航区 -->
     <header>
         <div class="container header-content">
-            <a href="https://www.itl88848.com" class="logo">
-                <img src="https://via.placeholder.com/40x40/00AAFF/000000?text=TL" alt="腾龙娱乐Logo"> <!-- 修改Logo图片文字 -->
+            <a href="https://www.itl88848.com" target="_blank" class="logo">
+                <img src="https://via.placeholder.com/40x40/00AAFF/000000?text=TL" alt="腾龙娱乐Logo">
                 <span>腾龙娱乐</span>
             </a>
-            <nav>
-                <ul>
-                    <li><a href="#home" class="nav-link active">首页</a></li>
-                    <li><a href="#about" class="nav-link">关于我们</a></li>
-                    <li><a href="#games" class="nav-link">游戏中心</a></li> <!-- 更改为游戏中心 -->
-                    <li><a href="#promotions" class="nav-link">最新活动</a></li> <!-- 更改为最新活动 -->
-                    <li><a href="#advantages" class="nav-link">平台优势</a></li> <!-- 更改为平台优势 -->
-                    <li><a href="#faq" class="nav-link">常见问题</a></li>
-                </ul>
-            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+        <nav class="container"> <!-- nav现在是独立的，用于移动端展开 -->
+            <ul>
+                <li><a href="#home" class="nav-link active">首页</a></li>
+                <li><a href="#about" class="nav-link">关于我们</a></li>
+                <li><a href="#games" class="nav-link">游戏中心</a></li>
+                <li><a href="#promotions" class="nav-link">最新活动</a></li>
+                <li><a href="#advantages" class="nav-link">平台优势</a></li>
+                <li><a href="#faq" class="nav-link">常见问题</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -919,7 +966,7 @@
                         <a href="#about" class="btn btn-outline btn-large"><i class="fas fa-play-circle"></i> 了解更多</a>
                     </div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1547481232-2d1b7d341951?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="腾龙娱乐体验" class="hero-image"> <!-- 更换图片 -->
+                <img src="https://images.unsplash.com/photo-1547481232-2d1b7d341951?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="腾龙娱乐体验" class="hero-image">
             </div>
         </section>
 
@@ -982,27 +1029,27 @@
                 <div class="game-categories">
                     <div class="game-card">
                         <div class="game-card-image">
-                            <img src="https://images.unsplash.com/photo-1544652430-8d5119934e62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="热门老虎机"> <!-- 更换图片 -->
+                            <img src="https://images.unsplash.com/photo-1544652430-8d5119934e62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="热门老虎机">
                         </div>
                         <div class="game-card-content">
                             <h3>老虎机</h3>
                             <p>数千款主题老虎机，震撼视觉，刺激音效，丰厚大奖等您来赢！</p>
-                            <a href="https://www.itl88848.com" target="_blank" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
+                            <a href="https://www.itl8848.com" target="_blank" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
                         </div>
                     </div>
                     <div class="game-card">
                         <div class="game-card-image">
-                            <img src="https://images.unsplash.com/photo-1584345437648-522d25091763?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="真人荷官"> <!-- 更换图片 -->
+                            <img src="https://images.unsplash.com/photo-1584345437648-522d25091763?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="真人荷官">
                         </div>
                         <div class="game-card-content">
                             <h3>真人娱乐</h3>
                             <p>身临其境的真人荷官体验，百家乐、轮盘、21点，真实互动，公平公正。</p>
-                            <a href="https://wwwitl1001.com" target="_blank" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
+                            <a href="https://www.itl1001.com" target="_blank" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
                         </div>
                     </div>
                     <div class="game-card">
                         <div class="game-card-image">
-                            <img src="https://images.unsplash.com/photo-1577459178652-e92534f59048?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="体育赛事"> <!-- 更换图片 -->
+                            <img src="https://images.unsplash.com/photo-1577459178652-e92534f59048?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="体育赛事">
                         </div>
                         <div class="game-card-content">
                             <h3>体育赛事</h3>
@@ -1025,7 +1072,7 @@
                     <div class="promo-card">
                         <h3><i class="fas fa-gift"></i> 新用户欢迎礼</h3>
                         <p>首次注册并充值，即可获得超值新手礼包，助您开启娱乐之旅。</p>
-                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl8848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
                         <h3><i class="fas fa-percentage"></i> 每周返水优惠</h3>
@@ -1035,22 +1082,22 @@
                     <div class="promo-card">
                         <h3><i class="fas fa-trophy"></i> 每日挑战赛</h3>
                         <p>完成每日游戏挑战，赢取积分和额外奖励，争夺排行榜荣耀！</p>
-                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl8848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
                         <h3><i class="fas fa-users"></i> 邀请好友赢大奖</h3>
                         <p>邀请好友注册并活跃，您和好友都能获得丰厚奖励金。</p>
-                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl8848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
                         <h3><i class="fas fa-piggy-bank"></i> VIP专属福利</h3>
                         <p>成为腾龙娱乐VIP会员，尊享专属返利、生日礼金及优先服务。</p>
-                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl8848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
                         <h3><i class="fas fa-calendar-alt"></i> 节日限定活动</h3>
                         <p>特定节日期间，我们将推出限时福利活动，惊喜不断，敬请关注！</p>
-                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl8848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                 </div>
             </div>
@@ -1138,7 +1185,7 @@
             <div class="container">
                 <h2>立即加入腾龙娱乐，开启您的娱乐之旅！</h2>
                 <p>数百万玩家的选择，顶级游戏体验，丰厚奖励，尽在腾龙娱乐。</p>
-                <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary btn-large"><i class="fas fa-rocket"></i> 立即注册</a>
+                <a href="https://www.itl8848.com" target="_blank" class="btn btn-primary btn-large"><i class="fas fa-rocket"></i> 立即注册</a>
             </div>
         </section>
 
@@ -1220,7 +1267,7 @@
                     <ul>
                         <li><a href="mailto:shixinqiangx@gmail.com"><i class="fas fa-envelope"></i> shixinqiangx@gmail.com</a></li>
                         <li><a href="tel:09662348273"><i class="fas fa-phone"></i> 09662348273</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 深圳市南山区科技园（示例地址，请根据实际情况修改）</a></li> <!-- 示例地址，请修改 -->
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 佤邦自治区（孟能县春能娱乐腾龙分公司）</a></li> <!-- 示例地址，请修改 -->
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1263,10 +1310,12 @@
                 });
             });
             
-            // 平滑滚动和导航活动状态
+            // 头部平滑滚动和导航活动状态
             const navLinks = document.querySelectorAll('nav a.nav-link');
             const header = document.querySelector('header');
             const mainContent = document.querySelector('main'); // 获取 main 元素
+            const navToggle = document.querySelector('.nav-toggle'); // 汉堡菜单按钮
+            const nav = document.querySelector('nav'); // 导航菜单
 
             // 根据头部高度调整 main 内容的 padding-top，避免内容被固定头部遮挡
             function adjustMainContentPadding() {
@@ -1279,6 +1328,17 @@
             adjustMainContentPadding();
             window.addEventListener('resize', adjustMainContentPadding);
 
+            // 汉堡菜单切换功能
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
+                    nav.classList.toggle('nav-open');
+                    document.body.classList.toggle('no-scroll'); // 切换body的滚动状态
+                    navToggle.querySelector('i').classList.toggle('fa-bars');
+                    navToggle.querySelector('i').classList.toggle('fa-times'); // 切换图标
+                });
+            }
+
+            // 导航链接点击事件 (包含平滑滚动和关闭菜单)
             navLinks.forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1286,9 +1346,16 @@
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     
+                    // 如果在移动端菜单打开，则关闭菜单
+                    if (window.innerWidth <= 768 && nav.classList.contains('nav-open')) {
+                        nav.classList.remove('nav-open');
+                        document.body.classList.remove('no-scroll');
+                        navToggle.querySelector('i').classList.remove('fa-times');
+                        navToggle.querySelector('i').classList.add('fa-bars');
+                    }
+
                     if(targetElement) {
                         const headerHeight = header.offsetHeight;
-                        // 注意：为了让滚动到的部分不被头部遮挡，需要减去头部高度
                         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                         
                         window.scrollTo({
@@ -1327,6 +1394,13 @@
 
             window.addEventListener('scroll', () => {
                 const currentScrollY = window.scrollY;
+
+                // 如果移动菜单是打开的，则不隐藏头部
+                if (nav.classList.contains('nav-open')) {
+                    header.classList.remove('header-hidden');
+                    lastScrollY = currentScrollY; // 确保在菜单打开时也更新lastScrollY
+                    return; // 退出，不执行隐藏/显示逻辑
+                }
 
                 // 如果当前滚动位置大于上次滚动位置 (向下滚动) 且超过阈值
                 if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
