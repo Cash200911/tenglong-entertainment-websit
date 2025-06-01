@@ -154,10 +154,11 @@
             color: var(--primary-color);
         }
 
-        .cta-buttons {
+        /* 头部右侧按钮已移除 */
+        /* .cta-buttons {
             display: flex;
             gap: 12px;
-        }
+        } */
 
         .btn {
             display: inline-flex;
@@ -539,7 +540,7 @@
             background: var(--darker-bg);
         }
 
-        .tips-container { /* 改为 guides-container */
+        .guides-container { /* 改为 guides-container */
             max-width: 800px;
             margin: 0 auto;
             background: var(--card-bg);
@@ -548,19 +549,19 @@
             border: 1px solid var(--border-color);
         }
 
-        .tip {
+        .guide-item { /* 原 tip */
             margin-bottom: var(--spacing-unit);
             padding-bottom: var(--spacing-unit);
             border-bottom: 1px solid var(--border-color);
         }
 
-        .tip:last-child {
+        .guide-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
 
-        .tip h3 {
+        .guide-item h3 {
             color: var(--primary-color);
             margin-bottom: 12px;
         }
@@ -901,33 +902,56 @@
                 --spacing-unit: 20px;
             }
             
+            header {
+                position: relative; /* 确保nav-toggle相对于header定位 */
+                padding: 12px 0; /* 调整头部内边距 */
+                min-height: 60px; /* 最小高度 */
+            }
+
             .header-content {
-                flex-wrap: wrap; /* 允许换行 */
-                justify-content: center; /* 居中对齐 */
-                gap: 16px; /* 减小间距 */
-                padding: 12px var(--spacing-unit);
+                flex-direction: row; /* 保持logo和toggle在同一行 */
+                justify-content: space-between; /* 左右对齐 */
+                align-items: center;
+                width: 100%;
+                padding: 0 var(--spacing-unit);
+                gap: 0; /* 移除 flex 容器的间距 */
             }
             
             .logo {
-                width: 100%; /* logo占满一行 */
-                justify-content: center; /* logo内容居中 */
-                margin-bottom: 8px;
+                width: auto; /* logo不再占满一行 */
+                justify-content: flex-start; /* logo内容左对齐 */
+                margin-bottom: 0;
             }
 
-            .cta-buttons {
-                width: 100%;
-                justify-content: center;
-                margin-top: 10px;
-            }
+            /* 头部右侧按钮已移除 */
+            /* .cta-buttons {
+                display: none; 
+            } */
             
             /* 汉堡菜单 */
             .nav-toggle { /* 汉堡菜单按钮 */
                 display: block;
-                position: absolute;
+                position: absolute; /* 相对于header定位 */
                 right: var(--spacing-unit);
                 top: 50%;
                 transform: translateY(-50%);
                 z-index: 1001; /* 确保在最上层 */
+                background: none;
+                border: none;
+                color: var(--text-light);
+                font-size: 1.5rem;
+                cursor: pointer;
+                width: 40px; /* 增大点击区域 */
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: background 0.3s ease;
+            }
+
+            .nav-toggle:hover {
+                background: rgba(255, 255, 255, 0.1);
             }
 
             nav {
@@ -935,6 +959,7 @@
                 top: 0;
                 left: -100%; /* 默认隐藏在左侧 */
                 width: 70%; /* 菜单宽度 */
+                max-width: 300px; /* 限制最大宽度 */
                 height: 100vh;
                 background-color: var(--darker-bg);
                 padding: calc(var(--spacing-unit) * 4) var(--spacing-unit); /* 顶部留出空间，并加内边距 */
@@ -944,6 +969,7 @@
                 flex-direction: column;
                 align-items: flex-start; /* 菜单项左对齐 */
                 border-right: 1px solid var(--border-color);
+                z-index: 999; /* 确保在导航层级 */
             }
 
             nav.active {
@@ -1045,7 +1071,7 @@
                 <img src="https://via.placeholder.com/40x40/00AAFF/000000?text=TL" alt="腾龙娱乐Logo"> <!-- 修改Logo图片文字 -->
                 <span>腾龙娱乐</span>
             </a>
-            <!-- 汉堡菜单按钮，JS动态生成 -->
+            <!-- 汉堡菜单按钮 -->
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1059,10 +1085,11 @@
                     <li><a href="#faq" class="nav-link">常见问题</a></li>
                 </ul>
             </nav>
-            <div class="cta-buttons">
+            <!-- 头部右侧按钮已移除 -->
+            <!-- <div class="cta-buttons">
                 <button class="btn btn-outline" id="loginBtn"><i class="fas fa-sign-in-alt"></i> 登录</button>
                 <button class="btn btn-primary" id="registerBtn"><i class="fas fa-user-plus"></i> 注册</button>
-            </div>
+            </div> -->
         </div>
     </header>
 
@@ -1253,6 +1280,17 @@
                         <h3>创新体验</h3>
                         <p>不断引入最新技术和玩法，打造独具创意的娱乐环境。</p>
                     </div>
+                    <!-- 新增两个优势，使其达到8个 -->
+                    <div class="reason-item">
+                        <div class="icon"><i class="fas fa-chart-bar"></i></div>
+                        <h3>数据透明</h3>
+                        <p>提供详尽的游戏数据报表，助您清晰了解每一笔投入与产出。</p>
+                    </div>
+                    <div class="reason-item">
+                        <div class="icon"><i class="fas fa-wallet"></i></div>
+                        <h3>便捷存取款</h3>
+                        <p>多渠道支付支持，极速存取款，保障您的资金流动。</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1264,16 +1302,16 @@
                     <h2>娱乐指南与技巧</h2>
                     <p>新手入门或老玩家进阶，这里有您需要的娱乐知识和技巧</p>
                 </div>
-                <div class="tips-container">
-                    <div class="tip">
+                <div class="guides-container"> <!-- 更改了 class 名称 -->
+                    <div class="guide-item"> <!-- 更改了 class 名称 -->
                         <h3><i class="fas fa-info-circle" style="color: var(--primary-color); margin-right: 8px;"></i> 负责任娱乐</h3>
                         <p>娱乐至上，请理性对待游戏，合理安排时间，控制好预算，切勿沉迷。</p>
                     </div>
-                    <div class="tip">
+                    <div class="guide-item"> <!-- 更改了 class 名称 -->
                         <h3><i class="fas fa-hand-point-right" style="color: var(--primary-color); margin-right: 8px;"></i> 注册与充值指引</h3>
                         <p>详细的新手注册和充值教程，助您快速开启游戏，畅享便捷服务。</p>
                     </div>
-                    <div class="tip">
+                    <div class="guide-item"> <!-- 更改了 class 名称 -->
                         <h3><i class="fas fa-chart-line" style="color: var(--primary-color); margin-right: 8px;"></i> 游戏策略分享</h3>
                         <p>精选热门游戏进阶攻略和实用技巧，提升您的胜率，玩得更尽兴。</p>
                     </div>
@@ -1459,8 +1497,9 @@
             const loginModal = document.getElementById('loginModal');
             const registerModal = document.getElementById('registerModal');
             
-            const loginBtn = document.getElementById('loginBtn');
-            const registerBtn = document.getElementById('registerBtn');
+            // 移除了header中的 loginBtn 和 registerBtn
+            // const loginBtn = document.getElementById('loginBtn'); 
+            // const registerBtn = document.getElementById('registerBtn'); 
             const heroRegisterBtn = document.getElementById('heroRegisterBtn');
             const ctaRegisterBtn = document.getElementById('ctaRegisterBtn');
             
@@ -1480,9 +1519,9 @@
                 document.body.style.overflow = ''; /* 恢复背景滚动 */
             }
             
-            // 打开模态框
-            if(loginBtn) loginBtn.addEventListener('click', () => openModal(loginModal));
-            if(registerBtn) registerBtn.addEventListener('click', () => openModal(registerModal));
+            // 打开模态框 (只剩下英雄区和CTA区的注册按钮触发)
+            // if(loginBtn) loginBtn.addEventListener('click', () => openModal(loginModal)); // 移除了
+            // if(registerBtn) registerBtn.addEventListener('click', () => openModal(registerModal)); // 移除了
             if(heroRegisterBtn) heroRegisterBtn.addEventListener('click', () => openModal(registerModal));
             if(ctaRegisterBtn) ctaRegisterBtn.addEventListener('click', () => openModal(registerModal));
             
@@ -1590,6 +1629,7 @@
                         if (window.innerWidth <= 768) {
                             nav.classList.remove('active');
                             navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                            document.body.style.overflow = ''; // 恢复背景滚动
                         }
                     }
                 });
