@@ -98,7 +98,6 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-light);
-            /* 确保渐变文字居中且不“歪” */
             text-align: center; 
             white-space: nowrap; /* 防止换行 */
         }
@@ -154,7 +153,7 @@
             color: var(--primary-color);
         }
 
-        /* 头部右侧按钮已移除 */
+        /* 头部右侧按钮已移除，因此相关样式也不再需要 */
         /* .cta-buttons {
             display: flex;
             gap: 12px;
@@ -205,7 +204,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
+            padding-top: 80px; /* 默认电脑端内边距，JS会动态调整 */
             position: relative;
             overflow: hidden;
         }
@@ -355,14 +354,14 @@
             color: var(--text-light);
         }
 
-        /* 游戏分类区 (原健康知识) */
+        /* 游戏分类区 */
         .game-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--spacing-unit);
         }
 
-        .game-card { /* 原 health-card */
+        .game-card {
             background: var(--card-bg);
             border-radius: var(--border-radius);
             overflow: hidden;
@@ -412,7 +411,7 @@
             margin-top: auto;
         }
 
-        /* 最新活动区 (原健康活动) */
+        /* 最新活动区 */
         .promotions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -535,12 +534,12 @@
             color: var(--text-muted);
         }
 
-        /* 娱乐指南区 (原健康小贴士) */
-        .entertainment-guides { /* 原 health-tips */
+        /* 娱乐指南区 */
+        .entertainment-guides {
             background: var(--darker-bg);
         }
 
-        .guides-container { /* 改为 guides-container */
+        .guides-container {
             max-width: 800px;
             margin: 0 auto;
             background: var(--card-bg);
@@ -549,7 +548,7 @@
             border: 1px solid var(--border-color);
         }
 
-        .guide-item { /* 原 tip */
+        .guide-item {
             margin-bottom: var(--spacing-unit);
             padding-bottom: var(--spacing-unit);
             border-bottom: 1px solid var(--border-color);
@@ -903,100 +902,65 @@
             }
             
             header {
-                position: relative; /* 确保nav-toggle相对于header定位 */
-                padding: 12px 0; /* 调整头部内边距 */
-                min-height: 60px; /* 最小高度 */
+                /* 在移动端，头部高度将自动扩展以包含 Logo 和导航 */
+                padding: 12px 0; /* 调整整体头部内边距 */
             }
 
             .header-content {
-                flex-direction: row; /* 保持logo和toggle在同一行 */
-                justify-content: space-between; /* 左右对齐 */
-                align-items: center;
-                width: 100%;
-                padding: 0 var(--spacing-unit);
-                gap: 0; /* 移除 flex 容器的间距 */
+                flex-direction: column; /* Logo 和导航垂直堆叠 */
+                align-items: center; /* 居中对齐 */
+                padding: 0 var(--spacing-unit); /* 容器内边距 */
+                gap: 16px; /* Logo 和导航之间的间距 */
             }
             
             .logo {
-                width: auto; /* logo不再占满一行 */
-                justify-content: flex-start; /* logo内容左对齐 */
-                margin-bottom: 0;
+                width: 100%; /* Logo 占满一行 */
+                justify-content: center; /* Logo 内容居中 */
+                margin-bottom: 0; /* 间距由 header-content 的 gap 控制 */
+            }
+            .logo img {
+                margin-right: 8px; /* 略微减小 Logo 图片右侧边距 */
             }
 
-            /* 头部右侧按钮已移除 */
-            /* .cta-buttons {
+            /* 汉堡菜单按钮已移除，因此相关样式也不再需要 */
+            .nav-toggle {
                 display: none; 
-            } */
-            
-            /* 汉堡菜单 */
-            .nav-toggle { /* 汉堡菜单按钮 */
-                display: block;
-                position: absolute; /* 相对于header定位 */
-                right: var(--spacing-unit);
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 1001; /* 确保在最上层 */
-                background: none;
-                border: none;
-                color: var(--text-light);
-                font-size: 1.5rem;
-                cursor: pointer;
-                width: 40px; /* 增大点击区域 */
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50%;
-                transition: background 0.3s ease;
-            }
-
-            .nav-toggle:hover {
-                background: rgba(255, 255, 255, 0.1);
             }
 
             nav {
-                position: fixed;
-                top: 0;
-                left: -100%; /* 默认隐藏在左侧 */
-                width: 70%; /* 菜单宽度 */
-                max-width: 300px; /* 限制最大宽度 */
-                height: 100vh;
-                background-color: var(--darker-bg);
-                padding: calc(var(--spacing-unit) * 4) var(--spacing-unit); /* 顶部留出空间，并加内边距 */
-                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.4);
-                transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* 弹性动画 */
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start; /* 菜单项左对齐 */
-                border-right: 1px solid var(--border-color);
-                z-index: 999; /* 确保在导航层级 */
-            }
-
-            nav.active {
-                left: 0; /* 激活时移入 */
+                /* 移动端导航样式：始终显示，并垂直排列 */
+                position: static; /* 移除固定定位 */
+                width: 100%; /* 占满宽度 */
+                height: auto;
+                background-color: transparent; /* 移除背景色 */
+                padding: 0; /* 移除内边距 */
+                box-shadow: none;
+                border: none; /* 移除边框 */
+                flex-direction: column; /* 导航项垂直堆叠 */
+                align-items: center; /* 导航项居中对齐 */
+                z-index: auto; /* 重置 z-index */
             }
 
             nav ul {
-                flex-direction: column;
-                width: 100%;
-                gap: 0; /* 移除列表项间距 */
+                flex-direction: column; /* 列表项垂直堆叠 */
+                width: 100%; /* 列表占满宽度 */
+                gap: 8px; /* 导航项之间的间距 */
             }
 
             nav ul li {
-                width: 100%;
-                margin-bottom: 12px; /* 列表项底部间距 */
+                width: 100%; /* 列表项占满宽度 */
+                text-align: center; /* 列表项文字居中 */
+                margin-bottom: 0; /* 间距由 ul 的 gap 控制 */
             }
 
             nav ul li a {
-                padding: 12px 0; /* 增大点击区域 */
-                width: 100%;
-                text-align: left;
-                font-size: 1.1rem;
+                padding: 8px 0; /* 调整导航链接内边距 */
+                font-size: 1rem; /* 调整字体大小 */
+                display: block; /* 使链接成为块级元素，方便点击 */
             }
-
             nav ul li a::after {
-                left: 0; /* 下划线左对齐 */
-                transform: translateX(0);
+                left: 50%; /* 下划线居中 */
+                transform: translateX(-50%);
             }
             nav ul li a:hover::after,
             nav ul li a.active::after {
@@ -1004,24 +968,7 @@
             }
             
             .hero {
-                text-align: center;
-                padding-top: 120px;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-image {
-                display: none;
-            }
-            
-            section {
-                padding: calc(var(--spacing-unit) * 2) 0;
+                min-height: auto; /* 允许英雄区在移动端高度自适应 */
             }
             
             h2 {
@@ -1071,10 +1018,10 @@
                 <img src="https://via.placeholder.com/40x40/00AAFF/000000?text=TL" alt="腾龙娱乐Logo"> <!-- 修改Logo图片文字 -->
                 <span>腾龙娱乐</span>
             </a>
-            <!-- 汉堡菜单按钮 -->
-            <button class="nav-toggle" aria-label="Toggle navigation">
+            <!-- 汉堡菜单按钮已移除 -->
+            <!-- <button class="nav-toggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
-            </button>
+            </button> -->
             <nav>
                 <ul>
                     <li><a href="#home" class="nav-link active">首页</a></li>
@@ -1086,10 +1033,6 @@
                 </ul>
             </nav>
             <!-- 头部右侧按钮已移除 -->
-            <!-- <div class="cta-buttons">
-                <button class="btn btn-outline" id="loginBtn"><i class="fas fa-sign-in-alt"></i> 登录</button>
-                <button class="btn btn-primary" id="registerBtn"><i class="fas fa-user-plus"></i> 注册</button>
-            </div> -->
         </div>
     </header>
 
@@ -1158,7 +1101,7 @@
             </div>
         </section>
 
-        <!-- 游戏中心区 (原健康知识) -->
+        <!-- 游戏中心区 -->
         <section id="games" class="game-center">
             <div class="container">
                 <div class="section-header">
@@ -1200,7 +1143,7 @@
             </div>
         </section>
 
-        <!-- 最新活动区 (原健康活动) -->
+        <!-- 最新活动区 -->
         <section id="promotions" class="promotions">
             <div class="container">
                 <div class="section-header">
@@ -1242,7 +1185,7 @@
             </div>
         </section>
 
-        <!-- 平台优势 (原为什么选择我们) -->
+        <!-- 平台优势 -->
         <section id="advantages" class="why-choose-us">
             <div class="container">
                 <div class="section-header">
@@ -1302,16 +1245,16 @@
                     <h2>娱乐指南与技巧</h2>
                     <p>新手入门或老玩家进阶，这里有您需要的娱乐知识和技巧</p>
                 </div>
-                <div class="guides-container"> <!-- 更改了 class 名称 -->
-                    <div class="guide-item"> <!-- 更改了 class 名称 -->
+                <div class="guides-container">
+                    <div class="guide-item">
                         <h3><i class="fas fa-info-circle" style="color: var(--primary-color); margin-right: 8px;"></i> 负责任娱乐</h3>
                         <p>娱乐至上，请理性对待游戏，合理安排时间，控制好预算，切勿沉迷。</p>
                     </div>
-                    <div class="guide-item"> <!-- 更改了 class 名称 -->
+                    <div class="guide-item">
                         <h3><i class="fas fa-hand-point-right" style="color: var(--primary-color); margin-right: 8px;"></i> 注册与充值指引</h3>
                         <p>详细的新手注册和充值教程，助您快速开启游戏，畅享便捷服务。</p>
                     </div>
-                    <div class="guide-item"> <!-- 更改了 class 名称 -->
+                    <div class="guide-item">
                         <h3><i class="fas fa-chart-line" style="color: var(--primary-color); margin-right: 8px;"></i> 游戏策略分享</h3>
                         <p>精选热门游戏进阶攻略和实用技巧，提升您的胜率，玩得更尽兴。</p>
                     </div>
@@ -1463,7 +1406,7 @@
             <div class="modal-body">
                 <form id="registerForm">
                     <div class="form-group">
-                        <label for="registerName">用户名</label> <!-- 更改为用户名 -->
+                        <label for="registerName">用户名</label>
                         <input type="text" id="registerName" class="form-control" required>
                     </div>
                     <div class="form-group">
@@ -1497,9 +1440,7 @@
             const loginModal = document.getElementById('loginModal');
             const registerModal = document.getElementById('registerModal');
             
-            // 移除了header中的 loginBtn 和 registerBtn
-            // const loginBtn = document.getElementById('loginBtn'); 
-            // const registerBtn = document.getElementById('registerBtn'); 
+            // 移除了header中的 loginBtn 和 registerBtn，只保留主页面的注册按钮
             const heroRegisterBtn = document.getElementById('heroRegisterBtn');
             const ctaRegisterBtn = document.getElementById('ctaRegisterBtn');
             
@@ -1519,9 +1460,7 @@
                 document.body.style.overflow = ''; /* 恢复背景滚动 */
             }
             
-            // 打开模态框 (只剩下英雄区和CTA区的注册按钮触发)
-            // if(loginBtn) loginBtn.addEventListener('click', () => openModal(loginModal)); // 移除了
-            // if(registerBtn) registerBtn.addEventListener('click', () => openModal(registerModal)); // 移除了
+            // 打开模态框 (由英雄区和CTA区的注册按钮触发)
             if(heroRegisterBtn) heroRegisterBtn.addEventListener('click', () => openModal(registerModal));
             if(ctaRegisterBtn) ctaRegisterBtn.addEventListener('click', () => openModal(registerModal));
             
@@ -1608,6 +1547,18 @@
             // 平滑滚动和导航活动状态
             const navLinks = document.querySelectorAll('nav a.nav-link');
             const header = document.querySelector('header');
+            const mainContent = document.querySelector('main'); // 获取 main 元素
+
+            // 根据头部高度调整 main 内容的 padding-top，避免内容被固定头部遮挡
+            function adjustMainContentPadding() {
+                if (mainContent && header) {
+                    mainContent.style.paddingTop = header.offsetHeight + 'px';
+                }
+            }
+
+            // 页面加载和窗口大小改变时调整 padding
+            adjustMainContentPadding();
+            window.addEventListener('resize', adjustMainContentPadding);
 
             navLinks.forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -1624,13 +1575,7 @@
                             top: targetPosition,
                             behavior: 'smooth'
                         });
-                        
-                        // 移动端点击导航项后关闭菜单
-                        if (window.innerWidth <= 768) {
-                            nav.classList.remove('active');
-                            navToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                            document.body.style.overflow = ''; // 恢复背景滚动
-                        }
+                        // 移动端无需关闭菜单，因为菜单内容始终显示
                     }
                 });
             });
@@ -1638,10 +1583,11 @@
             // 滚动时更新导航活动状态
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY;
-                const headerHeight = header.offsetHeight;
+                const headerHeight = header.offsetHeight; // 使用动态头部高度
                 
                 document.querySelectorAll('section[id]').forEach(section => {
-                    const sectionTop = section.offsetTop - headerHeight - 1; /* 减去1像素避免临界点问题 */
+                    // 调整 sectionTop 考虑到动态头部高度，并减去1像素避免临界点问题
+                    const sectionTop = section.offsetTop - headerHeight - 1; 
                     const sectionHeight = section.offsetHeight;
                     const sectionId = section.getAttribute('id');
                     
@@ -1656,44 +1602,7 @@
                 });
             });
             
-            // 汉堡菜单功能优化
-            const navToggle = document.querySelector('.nav-toggle');
-            const nav = document.querySelector('nav');
-            
-            if (navToggle) {
-                navToggle.addEventListener('click', () => {
-                    nav.classList.toggle('active');
-                    if (nav.classList.contains('active')) {
-                        navToggle.innerHTML = '<i class="fas fa-times"></i>';
-                        document.body.style.overflow = 'hidden'; /* 阻止背景滚动 */
-                    } else {
-                        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                        document.body.style.overflow = ''; /* 恢复背景滚动 */
-                    }
-                });
-            }
-
-            // 初始加载和窗口大小改变时调整菜单状态
-            function handleResponsiveNav() {
-                if(window.innerWidth > 768) {
-                    nav.classList.remove('active');
-                    nav.style.left = 'auto'; /* 电脑端恢复默认位置 */
-                    nav.style.position = 'relative'; /* 电脑端恢复相对定位 */
-                    nav.style.flexDirection = 'row'; /* 电脑端横向布局 */
-                    navToggle.style.display = 'none';
-                    document.body.style.overflow = '';
-                } else {
-                    nav.style.position = 'fixed'; /* 手机端固定定位 */
-                    nav.style.flexDirection = 'column'; /* 手机端纵向布局 */
-                    navToggle.style.display = 'block';
-                    if (!nav.classList.contains('active')) {
-                         nav.style.left = '-100%'; /* 隐藏菜单 */
-                    }
-                }
-            }
-            
-            handleResponsiveNav(); // 初始执行
-            window.addEventListener('resize', handleResponsiveNav); // 监听窗口变化
+            // 汉堡菜单相关功能已移除，因此相关 JS 代码也已删除
         });
     </script>
 </body>
