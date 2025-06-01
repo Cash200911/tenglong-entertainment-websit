@@ -153,12 +153,6 @@
             color: var(--primary-color);
         }
 
-        /* 头部右侧按钮已移除，因此相关样式也不再需要 */
-        /* .cta-buttons {
-            display: flex;
-            gap: 12px;
-        } */
-
         .btn {
             display: inline-flex;
             align-items: center;
@@ -754,122 +748,6 @@
             font-size: 0.9rem;
         }
 
-        /* 模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 450px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: none;
-            border: none;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .close-button:hover {
-            color: var(--primary-color);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .modal-header {
-            padding: var(--spacing-unit);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .modal-header h3 {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            text-align: center;
-        }
-
-        .modal-body {
-            padding: var(--spacing-unit);
-        }
-
-        .form-group {
-            margin-bottom: var(--spacing-unit);
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            color: var(--text-light);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.2); /* 调整颜色 */
-        }
-
-        .form-footer {
-            text-align: center;
-            margin-top: var(--spacing-unit);
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .form-footer a {
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-
         /* 响应式设计 - 针对手机端和电脑端优化 */
         @media (max-width: 1024px) {
             .hero h1 {
@@ -922,11 +800,6 @@
                 margin-right: 8px; /* 略微减小 Logo 图片右侧边距 */
             }
 
-            /* 汉堡菜单按钮已移除，因此相关样式也不再需要 */
-            .nav-toggle {
-                display: none; 
-            }
-
             nav {
                 /* 移动端导航样式：始终显示，并垂直排列 */
                 position: static; /* 移除固定定位 */
@@ -974,11 +847,6 @@
             h2 {
                 font-size: 2rem;
             }
-            
-            /* 模态框在手机端更居中 */
-            .modal-content {
-                margin: var(--spacing-unit);
-            }
         }
 
         @media (max-width: 480px) {
@@ -1014,14 +882,10 @@
     <!-- 头部导航区 -->
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">
+            <a href="https://www.itl88848.com" class="logo">
                 <img src="https://via.placeholder.com/40x40/00AAFF/000000?text=TL" alt="腾龙娱乐Logo"> <!-- 修改Logo图片文字 -->
                 <span>腾龙娱乐</span>
             </a>
-            <!-- 汉堡菜单按钮已移除 -->
-            <!-- <button class="nav-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button> -->
             <nav>
                 <ul>
                     <li><a href="#home" class="nav-link active">首页</a></li>
@@ -1032,7 +896,6 @@
                     <li><a href="#faq" class="nav-link">常见问题</a></li>
                 </ul>
             </nav>
-            <!-- 头部右侧按钮已移除 -->
         </div>
     </header>
 
@@ -1044,8 +907,8 @@
                     <h1>尽享线上娱乐，从腾龙娱乐开始</h1>
                     <p>腾龙娱乐汇聚全球热门游戏，提供安全公平的竞技环境，24/7客服支持，让您随时随地畅玩无限，体验极致娱乐乐趣。</p>
                     <div style="display: flex; gap: 16px;">
-                        <button class="btn btn-primary btn-large" id="heroRegisterBtn"><i class="fas fa-rocket"></i> 立即加入</button>
-                        <button class="btn btn-outline btn-large"><i class="fas fa-play-circle"></i> 了解更多</button>
+                        <a href="https://www.itl88848.com" class="btn btn-primary btn-large"><i class="fas fa-rocket"></i> 立即加入</a>
+                        <a href="#about" class="btn btn-outline btn-large"><i class="fas fa-play-circle"></i> 了解更多</a>
                     </div>
                 </div>
                 <img src="https://images.unsplash.com/photo-1547481232-2d1b7d341951?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="腾龙娱乐体验" class="hero-image"> <!-- 更换图片 -->
@@ -1116,7 +979,7 @@
                         <div class="game-card-content">
                             <h3>老虎机</h3>
                             <p>数千款主题老虎机，震撼视觉，刺激音效，丰厚大奖等您来赢！</p>
-                            <a href="#" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
+                            <a href="https://www.itl88848.com" target="_blank" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
                         </div>
                     </div>
                     <div class="game-card">
@@ -1126,7 +989,7 @@
                         <div class="game-card-content">
                             <h3>真人娱乐</h3>
                             <p>身临其境的真人荷官体验，百家乐、轮盘、21点，真实互动，公平公正。</p>
-                            <a href="#" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
+                            <a href="https://wwwitl1001.com" target="_blank" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
                         </div>
                     </div>
                     <div class="game-card">
@@ -1136,7 +999,7 @@
                         <div class="game-card-content">
                             <h3>体育赛事</h3>
                             <p>覆盖全球各类体育赛事，实时赔率，激情投注，体验赛事魅力。</p>
-                            <a href="#" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
+                            <a href="https://www.itl1002.com" target="_blank" class="btn btn-outline"><i class="fas fa-play-circle"></i> 立即畅玩</a>
                         </div>
                     </div>
                 </div>
@@ -1154,32 +1017,32 @@
                     <div class="promo-card">
                         <h3><i class="fas fa-gift"></i> 新用户欢迎礼</h3>
                         <p>首次注册并充值，即可获得超值新手礼包，助您开启娱乐之旅。</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
                         <h3><i class="fas fa-percentage"></i> 每周返水优惠</h3>
                         <p>每周参与指定游戏，可享受高额返水比例，让您赢更多！</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
                         <h3><i class="fas fa-trophy"></i> 每日挑战赛</h3>
                         <p>完成每日游戏挑战，赢取积分和额外奖励，争夺排行榜荣耀！</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
                         <h3><i class="fas fa-users"></i> 邀请好友赢大奖</h3>
                         <p>邀请好友注册并活跃，您和好友都能获得丰厚奖励金。</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
                         <h3><i class="fas fa-piggy-bank"></i> VIP专属福利</h3>
                         <p>成为腾龙娱乐VIP会员，尊享专属返利、生日礼金及优先服务。</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                     <div class="promo-card">
                         <h3><i class="fas fa-calendar-alt"></i> 节日限定活动</h3>
                         <p>特定节日期间，我们将推出限时福利活动，惊喜不断，敬请关注！</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
+                        <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary"><i class="fas fa-arrow-right"></i> 了解详情</a>
                     </div>
                 </div>
             </div>
@@ -1267,7 +1130,7 @@
             <div class="container">
                 <h2>立即加入腾龙娱乐，开启您的娱乐之旅！</h2>
                 <p>数百万玩家的选择，顶级游戏体验，丰厚奖励，尽在腾龙娱乐。</p>
-                <button class="btn btn-primary btn-large" id="ctaRegisterBtn"><i class="fas fa-rocket"></i> 立即注册</button>
+                <a href="https://www.itl88848.com" target="_blank" class="btn btn-primary btn-large"><i class="fas fa-rocket"></i> 立即注册</a>
             </div>
         </section>
 
@@ -1285,7 +1148,7 @@
                             <span class="arrow"><i class="fas fa-chevron-right"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>点击页面右上角的“注册”按钮，按照指引填写您的基本信息，完成验证即可轻松注册。注册过程快速便捷。</p>
+                            <p>点击本页面或游戏界面的“立即注册”按钮，即可跳转到我们的官方注册页面，按照指引填写您的基本信息，完成验证即可轻松注册。注册过程快速便捷。</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -1367,159 +1230,8 @@
         </div>
     </footer>
 
-    <!-- 登录模态框 -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" id="closeLoginModal">×</button>
-            <div class="modal-header">
-                <h3>会员登录</h3>
-            </div>
-            <div class="modal-body">
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="loginEmail">电子邮箱</label>
-                        <input type="email" id="loginEmail" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">密码</label>
-                        <input type="password" id="loginPassword" class="form-control" required>
-                    </div>
-                    <div style="text-align: right; margin-bottom: 20px;">
-                        <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">忘记密码?</a>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-sign-in-alt"></i> 登录</button>
-                    <div class="form-footer">
-                        还没有账户? <a href="#" id="switchToRegister">立即注册</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- 注册模态框 -->
-    <div id="registerModal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" id="closeRegisterModal">×</button>
-            <div class="modal-header">
-                <h3>注册新账户</h3>
-            </div>
-            <div class="modal-body">
-                <form id="registerForm">
-                    <div class="form-group">
-                        <label for="registerName">用户名</label>
-                        <input type="text" id="registerName" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerEmail">电子邮箱</label>
-                        <input type="email" id="registerEmail" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerPassword">密码</label>
-                        <input type="password" id="registerPassword" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerConfirmPassword">确认密码</label>
-                        <input type="password" id="registerConfirmPassword" class="form-control" required>
-                    </div>
-                    <div class="form-group" style="display: flex; align-items: center;">
-                        <input type="checkbox" id="agreeTerms" required style="margin-right: 8px;">
-                        <label for="agreeTerms" style="margin-bottom: 0; font-size: 0.9rem;">我已阅读并同意<a href="#" style="color: var(--primary-color);">服务条款</a>和<a href="#" style="color: var(--primary-color);">隐私政策</a></label>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-user-plus"></i> 注册</button>
-                    <div class="form-footer">
-                        已有账户? <a href="#" id="switchToLogin">立即登录</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 模态框功能
-            const loginModal = document.getElementById('loginModal');
-            const registerModal = document.getElementById('registerModal');
-            
-            // 移除了header中的 loginBtn 和 registerBtn，只保留主页面的注册按钮
-            const heroRegisterBtn = document.getElementById('heroRegisterBtn');
-            const ctaRegisterBtn = document.getElementById('ctaRegisterBtn');
-            
-            const closeLoginModal = document.getElementById('closeLoginModal');
-            const closeRegisterModal = document.getElementById('closeRegisterModal');
-            
-            const switchToRegister = document.getElementById('switchToRegister');
-            const switchToLogin = document.getElementById('switchToLogin');
-            
-            function openModal(modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; /* 阻止背景滚动 */
-            }
-            
-            function closeModal(modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = ''; /* 恢复背景滚动 */
-            }
-            
-            // 打开模态框 (由英雄区和CTA区的注册按钮触发)
-            if(heroRegisterBtn) heroRegisterBtn.addEventListener('click', () => openModal(registerModal));
-            if(ctaRegisterBtn) ctaRegisterBtn.addEventListener('click', () => openModal(registerModal));
-            
-            // 关闭模态框
-            if(closeLoginModal) closeLoginModal.addEventListener('click', () => closeModal(loginModal));
-            if(closeRegisterModal) closeRegisterModal.addEventListener('click', () => closeModal(registerModal));
-            
-            // 点击外部关闭
-            window.addEventListener('click', (e) => {
-                if(e.target === loginModal) closeModal(loginModal);
-                if(e.target === registerModal) closeModal(registerModal);
-            });
-            
-            // 切换模态框
-            if(switchToRegister) {
-                switchToRegister.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    closeModal(loginModal);
-                    openModal(registerModal);
-                });
-            }
-            
-            if(switchToLogin) {
-                switchToLogin.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    closeModal(registerModal);
-                    openModal(loginModal);
-                });
-            }
-            
-            // 表单提交 (这里只是演示，实际需要后端处理)
-            const loginForm = document.getElementById('loginForm');
-            if(loginForm) {
-                loginForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const email = document.getElementById('loginEmail').value;
-                    alert(`欢迎回来！登录功能演示，实际应用中会验证邮箱 ${email}`);
-                    closeModal(loginModal);
-                });
-            }
-            
-            const registerForm = document.getElementById('registerForm');
-            if(registerForm) {
-                registerForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    
-                    const password = document.getElementById('registerPassword').value;
-                    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-                    
-                    if(password !== confirmPassword) {
-                        alert('两次输入的密码不一致！');
-                        return;
-                    }
-                    
-                    const name = document.getElementById('registerName').value;
-                    alert(`恭喜，${name}！您已成功注册腾龙娱乐会员。`);
-                    closeModal(registerModal);
-                });
-            }
             
             // FAQ功能
             const faqItems = document.querySelectorAll('.faq-item');
@@ -1575,7 +1287,6 @@
                             top: targetPosition,
                             behavior: 'smooth'
                         });
-                        // 移动端无需关闭菜单，因为菜单内容始终显示
                     }
                 });
             });
@@ -1601,8 +1312,6 @@
                     }
                 });
             });
-            
-            // 汉堡菜单相关功能已移除，因此相关 JS 代码也已删除
         });
     </script>
 </body>
