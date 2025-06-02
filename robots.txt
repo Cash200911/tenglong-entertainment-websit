@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: 
-https://github.com/ch1888x/tenglong-entertainment-websit/sitemap.xml
+Sitemap: https://tl33054.dpdns.org/sitemap.xml
