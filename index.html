@@ -782,6 +782,14 @@
             transform: translateY(-3px);
         }
 
+        /* 添加 Telegram 图标样式 */
+        .social-links a .fab.fa-telegram {
+            color: #0088cc; /* Telegram 的蓝色 */
+        }
+        .social-links a:hover .fab.fa-telegram {
+            color: var(--dark-bg); /* 鼠标悬停时变成深色背景色 */
+        }
+
         .footer-bottom {
             text-align: center;
             padding: var(--spacing-unit) 0;
@@ -1249,6 +1257,8 @@
                         <a href="https://weibo.com/u/7991789272"><i class="fab fa-weibo"></i></a>
                         <a href="#"><i class="fab fa-qq"></i></a>
                         <a href="https://www.tiktok.com/@bababuzhidao?_t=ZS-8wrcfadftx2&_r=1"><i class="fab fa-tiktok"></i></a>
+                        <!-- 新增 Telegram 链接 -->
+                        <a href="https://t.me/tl330547" target="_blank" aria-label="Telegram Channel"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
